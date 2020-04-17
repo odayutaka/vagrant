@@ -5,37 +5,34 @@
         <div class="post-item">
 
           <div class="post-meta-top">
-            <div class="post-image">
-              <a href="images/sample-post1.jpg" class="theater">
-                <!-- <img src="images/sample-post1.jpg"> -->
-                <%= image_tag('sample-post1.jpg') %>
-              </a>
-            </div>
+          　 <div class="post-image">
+            　 <%= attachment_image_tag @post_image, :image %>
+          　 </div>
+        　 </div>
+          <div class="post-content">
+              <h2 class="post-title"><%= @post_image.shop_name %></h2>
+              <ul class="meta-info-cells v4 float-wrapper">
+                <li>
+                   <i class="fa fa-user"></i>By<a href="#">
+                   <%= @post_image.user.name %></a>
+                </li>
+                <li>
+                  <i class="fa fa-calendar"></i><%= @post_image.created_at.strftime('%Y/%m/%d') %>
+                </li>
+                <li>
+                  <i class="fa fa-heart"></i>
+                  <a href="#">202 いいね</a>
+                </li>
+                <li>
+                  <i class="fa fa-comment"></i>
+                  <a href="#comments">4</a>
+                </li>
+              </ul>
+              <div class="post-content-inner mt-20">
+                  <p><%= @post_image.caption %></p>
+              </div>
           </div>
 
-          <div class="post-content">
-            <h2 class="post-title">ここにタイトル</h2>
-            <ul class="meta-info-cells v4 float-wrapper">
-              <li>
-                <i class="fa fa-user"></i>By
-                <a href="#">投稿者名</a>
-              </li>
-              <li>
-                <i class="fa fa-calendar"></i>2017/07/21
-              </li>
-              <li>
-                <i class="fa fa-heart"></i>
-                <a href="#">202 いいね</a>
-              </li>
-              <li>
-                <i class="fa fa-comment"></i>
-                <a href="#comments">4</a>
-              </li>
-            </ul>
-            <div class="post-content-inner mt-20">
-              <p>ここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキスト</p>
-            </div>
-          </div>
 
           <div class="comment-list bt style-2" id="comments">
             <div class="float-wrapper">
