@@ -1,0 +1,24 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
+<h1>Book Detail</h1>
+<table>
+	<thead>
+		<tr>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><%= book.title %><%= link_to book_path(@book) %></td>
+			<td><%= book.opinion %></td>
+			<td>
+				<%= link_to "Edit", edit_book_path(book.id), class: "btn btn-success" %>
+				<%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-denger" %>
+			</td>
+		</tr>
+	</tbody>
+</table>
