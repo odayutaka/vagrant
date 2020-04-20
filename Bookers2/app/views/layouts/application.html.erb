@@ -22,28 +22,28 @@
                 <% end %>
               </li>
               <li class="">
-                <%= link_to user_path(current_user.id) do %>
+                <%= link_to books_path do %>
                 <i class="fas fa-user"></i> Users
                 <% end %>
               </li>
               <li class="">
-                <%= link_to user_path(current_user.id) do %>
+                <%= link_to books_path do %>
                 <i class="fas fa-book"></i> Books
                 <% end %>
               </li>
               <li class="">
                 <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fas fa-sign-out-alt"></i> logout
+                <i class="fas fa-sign-out-alt"></i> logout　　　
                 <% end %>
               </li>
               <% else %>
               <li class="">
-                </i><%= link_to new_user_registration_path do %>
+                </i><%= link_to root_path do %>
                 <i class="fas fa-home"></i> Home
                 <% end %>
               </li>
               <li class="">
-                <%= link_to new_user_session_path do %>
+                <%= link_to home_about_path do %>
                 <i class="fas fa-link"></i> About
                 <% end %>
               </li>
@@ -66,9 +66,9 @@
     <footer>
       <div class="container">
         <div class="row">
-          <div class="col-lg-8">
+          <div class="col-lg-9">
           </div>
-          <div class="col-lg-4">
+          <div class="col-lg-3">
             <p>CopyRight Infratop.inc</p>
           </div>
         </div>
