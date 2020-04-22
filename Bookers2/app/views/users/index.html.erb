@@ -1,4 +1,14 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
 
+<div class="container">
+  <div class="row">
+  <div class="col-xs-3">
+  <%= render 'users/list', book: @book, user: @user %>
+</div>
+
+<div class="col-xs-9">
 <h1>Users</h1>
 <table class="table table-hover table-inverse">
 	<thead>
@@ -11,10 +21,13 @@
 	<tbody>
 		<% @users.each do |user| %>
 		<tr>
-			<td><%= attachment_image_tag @user, :profile_image, size: "40 x 40", format: 'jpeg', fallback: "no_image.jpg" %></td>
+			<td><%= attachment_image_tag user, :profile_image, size: "40x40", format: 'jpeg', fallback: "no_image.jpg" %></td>
 			<td><%= user.name %></td>
-			<td><%= link_to "show", user_path(user.id) %></td>
+			<td><%= link_to "Show", user_path(user.id) %></td>
 		</tr>
 		<% end %>
 	</tbody>
 </table>
+</div>
+</div>
+</div>

@@ -1,6 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
 <h1>User info</h1>
 
 <%= form_for(@user) do |f| %>
+<% if @user.errors.any? %>
+		<p><%= @user.errors.count %> errors prohibited this obj from being saved:</p>
+		<ul>
+			<% @user.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+		</ul>
+	<% end %>
 <h4>Name</h4><%= f.text_field :name %>
 <h4>Image</h4>
 <%= f.attachment_field :profile_image, class: "user-edit-form" %>
@@ -8,3 +19,6 @@
 <%= f.text_area :introduction %>
 <br><%= f.submit 'Update User' %></br>
 <% end %>
+</div>
+</div>
+</div>
