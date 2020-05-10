@@ -13,12 +13,45 @@
 			<th>introduction</th>
 			<th><%= user.introduction %></th>
 		</tr>
+		<tr>
+			<th>follows</th>
+			<th>
+				<%= link_to following_user_path(user) do %>
+				<strong>
+      			<%= user.followings.count %>
+    			</strong>
+    			<% end %>
+			</th>
+		</tr>
+		<tr>
+			<th>followers</th>
+			<th>
+				<%= link_to followers_user_path(user) do %>
+				<strong>
+      			<%= user.followers.count %>
+    			</strong>
+    			<% end %>
+			</th>
+		</tr>
 	</tbody>
 </table>
+		<% unless current_user == user %>
+			<% if current_user.following?(user) %>
+				<%= form_for(current_user.following_relationships.find_by(following_id: user.id), html: { method: :delete }) do |f| %>
+				<%= f.submit "フォロー外す", class: "btn btn-large btn-primary follow-btn" %>
+			<% end %>
+			<% else %>
+	 			<%= form_for(current_user.following_relationships.build(following_id: user.id)) do |f| %>
+	   			<%= f.hidden_field :following_id %>
+	   			<%= f.submit "フォローする", class: "btn btn-large btn-success follow-btn" %>
+	    	<% end %>
+	   		<% end %>
+	    <% end %>
+
 	<div class="row">
 	<% if user.id == current_user.id %>
         <%= link_to edit_user_path(user) do %>
-        <span class="glyphicon glyphicon-wrench btn btn-default col-xs-12"></span>
+        <span class="glyphicon glyphicon-wrench btn btn-default col-xs-11"></span>
         <% end %>
     <% end %>
 	</div>

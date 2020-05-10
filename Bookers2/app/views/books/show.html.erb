@@ -61,7 +61,7 @@
 	</tbody>
 </table>
 
-<h1>Book comments</h1>
+<h3>Book comments</h3>
 <table class="table table-hover table-inverse">
 	<thead>
 		<tr>
@@ -75,8 +75,8 @@
 		<tr>
 			<td>
 				<%= link_to(book_comment.user) do %>
-				<%= attachment_image_tag book_comment.user, :profile_image, size: "60x60", format: 'jpeg' %>
-				<%= book_comment.user.name%>
+				<%= attachment_image_tag book_comment.user, :profile_image, size: "60x60", format: 'jpeg',fallback: "no_image.jpg" %>
+				<%= book_comment.user.name %>
 				<% end %>
 			</td>
 			<td>
